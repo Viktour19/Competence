@@ -1,10 +1,11 @@
-package org.example.lockscreen;
+package com.n4labs.competence;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
 public class LockScreenReceiver extends BroadcastReceiver {
+    public static boolean ScreenOn = false;
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
@@ -12,9 +13,12 @@ public class LockScreenReceiver extends BroadcastReceiver {
         //If the screen was just turned on or it just booted up, start your Lock Activity
         if(action.equals(Intent.ACTION_SCREEN_OFF) || action.equals(Intent.ACTION_BOOT_COMPLETED))
         {
-            Intent i = new Intent(context, MainActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
+                 Intent i = new Intent(context, MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+                ScreenOn = true;
+
+
         }
     }
 }

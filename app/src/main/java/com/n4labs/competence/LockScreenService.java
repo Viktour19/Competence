@@ -1,4 +1,4 @@
-package org.example.lockscreen;
+package com.n4labs.competence;
 
 import android.app.KeyguardManager;
 import android.app.Service;
